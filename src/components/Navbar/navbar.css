@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Oranienbaum';
+    src: url('../../assets/fonts/Oranienbaum.ttf') format('truetype')
+}
+
+.container-navbar {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width:100%;
+    border-bottom: 4px solid black;
+}
+
+.nav-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width:29%;
+}
+
+.nav_item1, .nav_item2, .nav_item3 {
+    position:relative;
+    text-decoration: none;
+}
+
+.nav_item3 {
+    width:20%;
+}
+
+.nav_item2 {
+    width:38%;
+    margin-right: 5px;
+}
+
+.nav_item1 {
+    position:relative;
+    width: 33%;
+    margin-right: 5px;
+}
+
+.nav_item1:hover, .nav_item2:hover, .nav_item3:hover {
+    text-decoration: underline black;
+}
+
+.nav_item_text2, .nav_item_text1, .nav_item_text3 {
+    font-family: "Oranienbaum";
+    color:black;
+    font-size: 20px;
+    font-weight: 600;
+    width:100%;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    .container-navbar {
+        justify-content: center;
+    }
+
+    .nav-header {
+        width: 98%;
+    }
+    .nav_item_text2, .nav_item_text1, .nav_item_text3 {
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+    }
+}
