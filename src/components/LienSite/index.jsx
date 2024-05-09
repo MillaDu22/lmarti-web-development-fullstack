@@ -4,7 +4,7 @@ import React from "react";
 function LienSite ({title}) {
     return(
         <ul className="liens-list"> 
-            <li className="lien"><a className="lien-a" href={title} target="blank">Lien site</a></li>
+            <li className="lien"><a className="lien-a" href={title} target="blank">Site</a></li>
         </ul>
     )
 }

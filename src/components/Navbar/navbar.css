@@ -6,10 +6,50 @@
 .container-navbar {
     display:flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     width:100%;
     border-bottom: 4px solid black;
+}
+
+.container-login-icons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:40px;
+    width:100px;
+}
+.container-logout-icons {
+    display:none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:40px;
+    width:100px;
+}
+
+.login {
+    font-size:30px;
+    width:50px;
+}
+
+.red {
+    color:red;
+    font-size:30px;
+    width:50px;
+}
+
+.green {
+    color:greenyellow;
+    font-size:30px;
+    width:50px;
+}
+
+.logout {
+    font-size:30px;
+    transform: rotate(180deg);
+    width:50px;
 }
 
 .nav-header {

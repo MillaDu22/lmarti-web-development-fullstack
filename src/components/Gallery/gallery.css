@@ -4,7 +4,7 @@
 }
 
 .gallery {
-    width: 99%;
+    width: 94%;
     max-width: 1600px; 
     margin: 80px auto;
     padding: 0px; 
@@ -48,6 +48,8 @@
     .gallery {
         border:none;
         box-shadow: none;
+        width:100%;
+        border-radius:0px;
     }
 
     .galleryGrid {

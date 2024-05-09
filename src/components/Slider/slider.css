@@ -9,6 +9,7 @@
     height:315px;
     background-color: white;
     overflow: hidden;
+    border-radius:10px 0px 0px 10px;
 }
 .slider-slides {
     background: white;

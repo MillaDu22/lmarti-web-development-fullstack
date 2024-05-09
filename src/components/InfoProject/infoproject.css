@@ -46,9 +46,19 @@
     padding-left: 10%;
     padding-right: 10%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background:black;
+}
+
+.box-slider-infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius:10px;
+    height: 315px;
 }
 
 .container-mots-cles {
@@ -65,10 +75,11 @@
     justify-content: space-between;
     width:45%;
     padding-right: 5%;
-    height: 315px;
+    height:100%;
     position:relative;
     background: white;
     border-left:1px solid white;
+    border-radius:0px 10px 10px 0px;
 }
 
 .back-info-projet {
@@ -149,6 +160,15 @@
     color:black;
 }
 
+.box-title-circleskill {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    background: white;
+}
+
 .titre-circle-skill-box {
     text-align:center;
     position: relative;
@@ -203,16 +223,27 @@
         width:100%;
         padding:0px;
     }
+    
+    .box-slider-infos {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        height:100%;
+        border-radius: 0px;
+        margin: 0;
+    }
 
     .info-projet {
         width:100%;
+        padding:0;
         height: auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         box-shadow: none;
-        border-radius:0px;
+        border-radius:0px
     }
 
     .container-mots-cles {
@@ -231,6 +262,7 @@
         margin-right: auto;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 
     .txt-info-projet {
@@ -244,8 +276,32 @@
 
     .container-liens {
         padding-left:0;
+        width:100%;
+        overflow: hidden;
     }
 
+    .liens-list {
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width:90%;
+        margin-left: -37px ;
+    }
+    
+    .lien {
+        list-style: none;
+        width:100%;
+        text-align: center;
+        position:relative;
+        margin-top:-17px;
+        margin-bottom:-17px;
+    }
+
+    .box-title-circleskill {
+        background: black;
+    }
+    
     .container-circle-skill {
         flex-direction: column;
         justify-content: space-between;
@@ -266,8 +322,7 @@
         color: white;
         background: black;
         padding-top: 20px;
-        width:100%;
+        width:90%;
         margin-bottom: 0;
     }
 }
-

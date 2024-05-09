@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./carousel.scss";
-import DatasProjects from '../../DatasProjects/datasProjects.json';
+import DatasCarousel from '../../DatasProjects/datasCarrouselHome.json';
 
 function Carousel(){
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = DatasProjects; 
+    const slides = DatasCarousel; 
     const length = slides.length;
 
     // Function to handle next slide //

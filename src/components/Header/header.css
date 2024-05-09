@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: 'Champignon';
-    src: url('../../assets/fonts/Champignon.otf') format('truetype')
+    font-family: 'Boheme';
+    src: url('../../assets/fonts/Boheme\ Floral.ttf') format('truetype')
 }
 
 .container-header {
@@ -45,6 +45,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-decoration: none;
 }
 
 .container-title-france {
@@ -105,11 +106,12 @@
 }
 
 .subtitle-app {
-    font-family: 'Champignon';
+    font-family: 'Boheme';
     color:white;
     font-size: 50px;
+    font-weight: 100;
     margin-top: 15px;
-    margin-left: 10px;
+    margin-left: 40px;
     width: 240px;
 }
 
@@ -168,7 +170,8 @@
 
     .subtitle-app {
         font-size: 35px;
-        width: 180px;
-        margin-top:25px;
+        width: 260px;
+        margin-top:23px;
+        margin-left: 20px;
     }
 }

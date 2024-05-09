@@ -1,0 +1,165 @@
+.main-admin {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    margin: 0 auto;
+}
+
+.title-forms {
+    font-family: "Oranienbaum";
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.title-form {
+    font-family: "Oranienbaum";
+    color:black;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.container-forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:96%;
+    margin:0 auto;
+    padding:40px 2% 40px 2%;
+}
+
+.form-project, 
+.form-certificat, 
+.form-cv {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left:2%;
+    padding-right: 2%;
+    margin: 0 auto 60px;
+    width:25%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    background: rgba(211, 211, 211, 0.216);
+}
+.label-formsAPI {
+    font-family: "oranienbaum";
+    font-size: 18px;
+    color: black;
+}
+.name-project, 
+.informations-project,
+.tag1-project,
+.tag2-project,
+.tag3-project,
+.description-project, 
+.lien-code-project,
+.lien-site-project,
+.alt-cover-project,
+.html-project,
+.css-project,
+.js-project,
+.name-certificat, 
+.id, 
+.title-cv{
+    width:90%;
+    height:30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    border:none;
+    margin-bottom:20px;
+}
+
+.informations-project,
+.description-project {
+    height: 80px;
+} 
+
+.submit-form-project, 
+.submit-form-certificat, 
+.submit-form-cv {
+    font-family: "Oranienbaum";
+    font-size: 16px;
+    text-align: center;
+    width:50%;
+    height:30px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    border:none;
+    cursor:pointer;
+    margin:30px auto;
+}
+
+.submit-form-project:hover, 
+.submit-form-certificat:hover, 
+.submit-form-cv:hover {
+    background: black;
+    color: white;
+}
+
+.errormsg-form-project, 
+.errormsg-form-certificat, 
+.errormsg-form-cv  {
+    display:none;
+    font-family: "Oranienbaum";
+    font-size: 16px;
+    color:red;
+    text-align: center;
+}
+
+.custom-file-upload-certificat, 
+.custom-file-upload-cv,
+.custom-file-upload-cover,
+.custom-file-upload-photos {
+    width: 52%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+    background-color: white;
+    border: none;
+    padding-top: 7px;
+    padding-bottom:7px;
+    padding-left: 10%;
+    padding-right:10%;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    position:relative;
+    margin-bottom:-23px;
+    z-index:1
+
+}
+
+.custom-file-upload-certificat:hover, 
+.custom-file-upload-cv:hover,
+.custom-file-upload-cover:hover,
+.custom-file-upload-photos:hover  {
+    background-color: black;
+    color:white;
+}
+
+.fa-cloud-upload-alt {
+    font-size:19px;
+}
+.cv, .certificat, .cover, .photos {
+    z-index:2;
+    opacity:0;
+    margin-bottom: 10px;
+}
+.name-file-selected {
+    color: blue;
+    margin-bottom: 20px;
+}

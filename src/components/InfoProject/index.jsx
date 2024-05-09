@@ -40,23 +40,27 @@ const InfoProject = () => {
             <div className= 'info-projet-box'>
                 <h2 className ="title">{ ficheProjet?.title }</h2>
                 <div className="display-row">
-                    <Slider images = {ficheProjet?.photos}/>
-                    <div className="info-projet">
-                        <div className=" container-mots-cles">{TagsProjets}</div>
-                        <span className="back-info-projet">
-                            <span className="txt-info-projet">{ficheProjet?.description}</span>
-                        </span>
-                        <div className=" container-liens">{CodesProjets}{SitesProjets}</div> 
+                    <div className="box-slider-infos">
+                        <Slider images = {ficheProjet?.photos}/>
+                        <div className="info-projet">
+                            <div className=" container-mots-cles">{TagsProjets}</div>
+                            <span className="back-info-projet">
+                                <span className="txt-info-projet">{ficheProjet?.description}</span>
+                            </span>
+                            <div className=" container-liens">{CodesProjets}{SitesProjets}</div> 
+                        </div>
                     </div>
                 </div>
-                <h3 className="titre-circle-skill-box">Niveaux d'utilisation des technologies sur ce projet</h3>
-                <div className= "container-circle-skill">
-                    <CircleSkillHtml 
-                        percentage= {ficheProjet?.html}/>
-                    <CircleSkillCss 
-                        percentage= {ficheProjet?.css}/>
-                    <CircleSkillJs 
-                        percentage= {ficheProjet?.js}/>
+                <div className="box-title-circleskill">
+                    <h3 className="titre-circle-skill-box">Niveaux d'utilisation des technologies sur ce projet</h3>
+                    <div className= "container-circle-skill">
+                        <CircleSkillHtml 
+                            percentage= {ficheProjet?.html}/>
+                        <CircleSkillCss 
+                            percentage= {ficheProjet?.css}/>
+                        <CircleSkillJs 
+                            percentage= {ficheProjet?.js}/>
+                    </div>
                 </div>
             </div>
             ) : (<Navigate replace to ='../pages/error/index.jsx' />
