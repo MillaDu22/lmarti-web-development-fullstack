@@ -12,6 +12,25 @@
     border-bottom: 4px solid black;
 }
 
+.box-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:20%;
+
+}
+
+
+.container-sign-icons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:40px;
+    width:100px;
+}
+
 .container-login-icons {
     display:flex;
     flex-direction: row;
@@ -27,6 +46,11 @@
     align-items: center;
     margin-left:40px;
     width:100px;
+}
+
+.sign {
+    font-size:30px;
+    width:50px;
 }
 
 .login {

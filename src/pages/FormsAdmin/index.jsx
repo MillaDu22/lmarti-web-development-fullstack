@@ -3,11 +3,25 @@ import Navbar from "../../components/Navbar";
 import "./formsAdmin.css";
 
 function FormsAdmin() {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
+    const [selectedFileCover, setSelectedFileCover] = useState(null);
+    const handleFileChangeCover = (e) => {
+        setSelectedFileCover(e.target.files[0]);
     };
 
+    const [selectedFilePhoto, setSelectedFilePhoto] = useState(null);
+    const handleFileChangePhoto = (e) => {
+        setSelectedFilePhoto(e.target.files[0]);
+    };
+
+    const [selectedFileCertificat, setSelectedFileCertificat] = useState(null);
+    const handleFileChangeCertificat = (e) => {
+        setSelectedFileCertificat(e.target.files[0]);
+    };
+
+    const [selectedFileCv, setSelectedFileCv] = useState(null);
+    const handleFileChangeCv = (e) => {
+        setSelectedFileCv(e.target.files[0]);
+    };
 
     return(
         <main className="main-admin">
@@ -39,14 +53,14 @@ function FormsAdmin() {
                     <span className="custom-file-upload-cover">
                         <i className="fas fa-cloud-upload-alt"></i>Cover
                     </span>
-                    <input type="file" id="cover-project" className="cover" defaultValue={selectedFile}  onChange={handleFileChange} />
-                    <span className = "name-file-selected">{selectedFile ? selectedFile.name : 'Aucun fichier sélectionné'}</span>
+                    <input type="file" id="cover-project" className="cover" defaultValue={selectedFileCover}  onChange={handleFileChangeCover} />
+                    <span className = "name-file-selected">{selectedFileCover ? selectedFileCover.name : 'Aucun fichier sélectionné'}</span>
                     <label htmlFor="photos-project" className="label-formsAPI">Photos slider(webp):</label>
                     <span className="custom-file-upload-photos">
                         <i className="fas fa-cloud-upload-alt"></i>Photos
                     </span>
-                    <input type="file" id="photos-project" className="photos" defaultValue={selectedFile}  onChange={handleFileChange} multiple/>
-                    <span className = "name-file-selected">{selectedFile ? selectedFile.name : 'Aucun fichier sélectionné'}</span>
+                    <input type="file" id="photos-project" className="photos" defaultValue={selectedFilePhoto}  onChange={handleFileChangePhoto} multiple/>
+                    <span className = "name-file-selected">{selectedFilePhoto ? selectedFilePhoto.name : 'Aucun fichier sélectionné'}</span>
                     <label htmlFor="html-project" className="label-formsAPI">Html%(number):</label>
                     <input type="text" id="html-project" autoComplete="off" className="html-project" defaultValue=""  />
                     <label htmlFor="css-project" className="label-formsAPI">Css%(number):</label>
@@ -67,8 +81,8 @@ function FormsAdmin() {
                     <span className="custom-file-upload-certificat">
                         <i className="fas fa-cloud-upload-alt"></i>Certificat
                     </span>
-                    <input type="file" id="certificat" className="certificat"  defaultValue={selectedFile}  onChange={handleFileChange}  />
-                    <span className = "name-file-selected">{selectedFile ? selectedFile.name : 'Aucun fichier sélectionné'}</span>
+                    <input type="file" id="certificat" className="certificat"  defaultValue={selectedFileCertificat}  onChange={handleFileChangeCertificat}  />
+                    <span className = "name-file-selected">{selectedFileCertificat ? selectedFileCertificat.name : 'Aucun fichier sélectionné'}</span>
                     <p className="errormsg-form-certificat"></p>
                     <input type="submit" id="submit-form-certificat" className="submit-form-certificat" name="form-cerfificat" value="Ajouter"/>
                 </form>
@@ -81,8 +95,8 @@ function FormsAdmin() {
                     <span className="custom-file-upload-cv">
                         <i className="fas fa-cloud-upload-alt"></i>Cv
                     </span>
-                    <input type="file" id="cv" className="cv" defaultValue={selectedFile}  onChange={handleFileChange} />
-                    <span className = "name-file-selected">{selectedFile ? selectedFile.name : 'Aucun fichier sélectionné'}</span>
+                    <input type="file" id="cv" className="cv" defaultValue={selectedFileCv}  onChange={handleFileChangeCv} />
+                    <span className = "name-file-selected">{selectedFileCv ? selectedFileCv.name : 'Aucun fichier sélectionné'}</span>
                     <p className="errormsg-form-cv"></p>
                     <input type="submit" id="submit-form-cv" className="submit-form-cv" name="form-cv" value="modifier"/>
                 </form>
