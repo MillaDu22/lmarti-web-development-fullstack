@@ -53,7 +53,29 @@ exports.getCVById = (req, res, next) => {
 
 // Controller pour mettre à jour un CV //
 exports.updateCV = (req, res, next) => {
-    // À implementer, A voir... /
+    const { title } = req.body;
+    const updateData = {};
+    if (title) {
+        updateData.title = title;
+    }
+    
+    CV.findByIdAndUpdate(req.params.id, updateData, { new: true })
+        .then(updatedCV => {
+            if (!updatedCV) {
+                return res.status(404).json({
+                    message: 'CV non trouvé'
+                });
+            }
+            res.status(200).json({
+                message: 'CV mis à jour avec succès',
+                cv: updatedCV
+            });
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: error
+            });
+        });
 };
 
 // Controller pour supprimer un CV //

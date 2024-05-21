@@ -1,165 +1,120 @@
 .main-admin {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    width:100%;
-    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 .title-forms {
-    font-family: "Oranienbaum";
-    font-size: 30px;
-    text-decoration: underline;
-}
-
-.title-form {
-    font-family: "Oranienbaum";
-    color:black;
     font-size: 24px;
-    text-align: center;
-    width: 100%;
+    margin-bottom: 20px;
 }
 
 .container-forms {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width:96%;
-    margin:0 auto;
-    padding:40px 2% 40px 2%;
-}
-
-.form-project, 
-.form-certificat, 
-.form-cv {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left:2%;
-    padding-right: 2%;
-    margin: 0 auto 60px;
-    width:25%;
-    display:flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    background: rgba(211, 211, 211, 0.216);
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
 }
+
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-form {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
 .label-formsAPI {
-    font-family: "oranienbaum";
-    font-size: 18px;
-    color: black;
-}
-.name-project, 
-.informations-project,
-.tag1-project,
-.tag2-project,
-.tag3-project,
-.description-project, 
-.lien-code-project,
-.lien-site-project,
-.alt-cover-project,
-.html-project,
-.css-project,
-.js-project,
-.name-certificat, 
-.id, 
-.title-cv{
-    width:90%;
-    height:30px;
-    border-radius: 5px;
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    border:none;
-    margin-bottom:20px;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
 }
 
-.informations-project,
-.description-project {
-    height: 80px;
-} 
-
-.submit-form-project, 
-.submit-form-certificat, 
-.submit-form-cv {
-    font-family: "Oranienbaum";
-    font-size: 16px;
-    text-align: center;
-    width:50%;
-    height:30px;
-    background: white;
-    color: black;
-    border-radius: 5px;
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    border:none;
-    cursor:pointer;
-    margin:30px auto;
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
 }
 
-.submit-form-project:hover, 
-.submit-form-certificat:hover, 
-.submit-form-cv:hover {
-    background: black;
-    color: white;
+.input-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
 
-.errormsg-form-project, 
-.errormsg-form-certificat, 
-.errormsg-form-cv  {
-    display:none;
-    font-family: "Oranienbaum";
-    font-size: 16px;
-    color:red;
-    text-align: center;
-}
-
-.custom-file-upload-certificat, 
-.custom-file-upload-cv,
-.custom-file-upload-cover,
-.custom-file-upload-photos {
-    width: 52%;
+.buttons {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 200;
-    color: black;
-    background-color: white;
+    margin-top: 10px;
+}
+
+.btn-update, .btn-delete, .btn-submit {
+    padding: 10px 15px;
     border: none;
-    padding-top: 7px;
-    padding-bottom:7px;
-    padding-left: 10%;
-    padding-right:10%;
-    border-radius: 5px;
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-    position:relative;
-    margin-bottom:-23px;
-    z-index:1
-
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-.custom-file-upload-certificat:hover, 
-.custom-file-upload-cv:hover,
-.custom-file-upload-cover:hover,
-.custom-file-upload-photos:hover  {
-    background-color: black;
-    color:white;
+.btn-update {
+    background-color: #ffc107;
+    color: #fff;
 }
 
-.fa-cloud-upload-alt {
-    font-size:19px;
+.btn-update:hover {
+    background-color: #e0a800;
 }
-.cv, .certificat, .cover, .photos {
-    z-index:2;
-    opacity:0;
-    margin-bottom: 10px;
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
 }
-.name-file-selected {
-    color: blue;
-    margin-bottom: 20px;
+
+.btn-delete:hover {
+    background-color: #c82333;
 }
+
+.btn-submit {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.errormsg-form-project,
+.errormsg-form-certificat,
+.errormsg-form-cv {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-update, .btn-delete, .btn-submit {
+        width: 100%;
+        text-align: center;
+    }
+}
+

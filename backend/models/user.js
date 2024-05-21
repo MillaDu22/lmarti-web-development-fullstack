@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -18,12 +18,17 @@ const userSchema = new mongoose.Schema({
     });
 
     // Méthode pour comparer les mots de passe //
-    userSchema.methods.comparePassword = async function (candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
+    userSchema.methods.comparePassword = async function(candidatePassword) {
+        try {
+            const match = await bcrypt.compare(candidatePassword, this.password);
+            return match;
+        } catch (error) {
+            throw new Error(error);
+        }
     };
 
     // Middleware pour hacher le mot de passe avant de l'enregistrer dans la base de données //
-    userSchema.pre('save', async function (next) {
+    /*userSchema.pre('save', async function (next) {
     try {
         if (!this.isModified('password')) {
         return next();
@@ -34,7 +39,18 @@ const userSchema = new mongoose.Schema({
     } catch (error) {
         next(error);
     }
+});*/
+userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) return next();
+    try {
+        const salt = await bcrypt.genSalt(10);
+        this.password = await bcrypt.hash(this.password, salt);
+        next();
+    } catch (err) {
+        next(err);
+    }
 });
+
 
 const User = mongoose.model('User', userSchema);
 
