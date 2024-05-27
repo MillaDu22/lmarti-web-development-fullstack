@@ -32,6 +32,8 @@ exports.login = (req, res, next) => {
                 console.log('User not found for email:', req.body.email);
                 return res.status(401).json({ message: 'Paire login/mot de passe incorrecte'});
             }
+            console.log(user);
+            console.log(req.body.password)
             bcrypt.compare(req.body.password, user.password)
                 .then(valid => {
                     if (!valid) {

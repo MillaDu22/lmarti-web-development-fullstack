@@ -1,44 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Card from '../Card/index';
 import "./gallery.css";
-import Card from "../Card/index";
-import datasProjects from '../../DatasProjects/datasProjects.json';
+import { useLocation } from 'react-router-dom';
 
 function Gallery() {
-    // Tableau des différentes classes de taille //
-    const sizes = ['card-small', 'card-medium', 'card-large'];
+    const [projects, setProjects] = useState([]);
+    const location = useLocation();
 
-    // Index des cartes avec grande taille //
-    const largeSizeCardsIndexes = [0, 2, datasProjects.length - 1]; // Première, troisième et dernière carte //
+    useEffect(() => {
+        // Mets à jour la liste des projets lorsque la page est montée //
+        fetchProjects();
+    }, []);
+
+    const fetchProjects = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/api/project');
+            setProjects(response.data);
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+        }
+    };
+
+    // Récupére les paramètres de requête de l'URL //
+    const searchParams = new URLSearchParams(location.search);
+    const newProjectId = searchParams.get('newProjectId');
+
+    useEffect(() => {
+        // Si un nouvel identifiant de projet est présent dans les paramètres de requête, ajoute le nouveau projet à la liste des projets //
+        if (newProjectId) {
+            fetchProjects(); // Rafraîchi la liste des projets depuis le serveur //
+        }
+    }, [newProjectId]);
 
     return (
         <section className="gallery">
             <h2 className="title-gallery">Ma galerie</h2>
             <div className="galleryGrid">
-                {datasProjects.map((datasProject, index) => {
-                    // Sélectionne une taille aléatoire pour chaque carte //
-                    const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
-
-                    // Vérifie si cette carte doit avoir une grande taille //
-                    const isLargeSize = largeSizeCardsIndexes.includes(index);
-
-                    return (
-                        <Card
-                            key={datasProject.id}
-                            id={datasProject.id}
-                            title={datasProject.title}
-                            cover={datasProject.cover}
-                            alt={datasProject.alt}
-                            informations={datasProject.informations}
-                            size={isLargeSize ? 'card-large' : randomSize} // Si c'est une grande taille, utilise 'card-large', sinon utilise une taille aléatoire //
-                        />
-                    );
-                })}
+                {projects.map((project) => (
+                    <Card
+                        key={project.id}
+                        id={project.id}
+                        title={project.title}
+                        cover={project.cover}
+                        alt={project.alt}
+                        informations={project.informations}
+                    />
+                ))}
             </div>
         </section>
     );
 }
 
 export default Gallery;
+
 
 
 

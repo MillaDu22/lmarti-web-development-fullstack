@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./log.css";
@@ -31,7 +31,7 @@ function Log() {
             });
             // Stocke le token d'authentification dans le localStorage ou state //
             localStorage.setItem('token', response.data.token);
-            navigate('/formsAdmin'); // Redirige vers le dash admin //
+            navigate('/dashboardadmin'); // Redirige vers le dash admin //
         } catch (error) {
             if (error.response) {
                 console.error('Response data:', error.response.data);

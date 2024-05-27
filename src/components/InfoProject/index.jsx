@@ -69,3 +69,79 @@ const InfoProject = () => {
     );
 };
 export default InfoProject;
+
+/*import { useEffect, useState } from 'react';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Tag from '../Tag/index';
+import Slider from '../../components/Slider/index';
+import LienCode from "../LienCode/index";
+import LienSite from "../LienSite/index";
+import CircleSkillHtml from "../CircleSkillHtml/indexHtml";
+import CircleSkillCss from "../CircleSkillCss/indexCss";
+import CircleSkillJs from '../CircleSkillJs/indexJs';
+
+const InfoProject = () => {
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const [project, setProject] = useState(null);
+
+    useEffect(() => {
+        const fetchProject = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/api/project/${id}`);
+                setProject(response.data);
+                console.log(response)
+            } catch (error) {
+                console.error('Error fetching project:', error);
+                navigate('/error');
+            }
+        };
+
+        fetchProject();
+    }, [id, navigate]);
+
+    if (!project) {
+        return <Navigate replace to="../pages/error/index.jsx" />;
+    }
+
+    const TagsProjets = project?.tags.map((tag, index) => {
+        return <Tag key={index} title={tag} />;
+    });
+
+    const CodesProjets = project?.code.map((code, index) => {
+        return <LienCode key={index} title={code} />;
+    });
+
+    const SitesProjets = project?.site?.map((site, index) => {
+        return <LienSite key={index} title={site} />;
+    });
+
+    return (
+        <div className='info-projet-box'>
+            <h2 className="title">{project?.name}</h2>
+            <div className="display-row">
+                <div className="box-slider-infos">
+                    <Slider images={project?.photos} />
+                    <div className="info-projet">
+                        <div className="container-mots-cles">{TagsProjets}</div>
+                        <span className="back-info-projet">
+                            <span className="txt-info-projet">{project?.description}</span>
+                        </span>
+                        <div className="container-liens">{CodesProjets}{SitesProjets}</div>
+                    </div>
+                </div>
+            </div>
+            <div className="box-title-circleskill">
+                <h3 className="titre-circle-skill-box">Niveaux d'utilisation des technologies sur ce projet</h3>
+                <div className="container-circle-skill">
+                    <CircleSkillHtml percentage={project?.html} />
+                    <CircleSkillCss percentage={project?.css} />
+                    <CircleSkillJs percentage={project?.js} />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default InfoProject;*/

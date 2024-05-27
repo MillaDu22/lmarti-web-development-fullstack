@@ -1,34 +1,37 @@
 const Project = require('../models/project');
 
 // Controller pour créer un nouveau projet //
-exports.createProject = (req, res, next) => {
-    const project = new Project({
-        name: req.body.name,
-        informations: req.body.informations,
-        tags: req.body.tags,
-        description: req.body.description,
-        cover: {data: req.file.buffer, contentType: req.file.mimetype },
-        photos: req.files.map(file => ({data: file.buffer, contentType: file.mimetype })),
-        code: req.body.code,
-        site: req.body.site,
-        alt: req.body.alt,
-        html: req.body.html,
-        css: req.body.css,
-        js: req.body.js
-    });
+exports.createProject = async (req, res) => {
+    console.log('Received POST request to create project');
+    console.log('Request body:', req.body);
 
-    project.save()
-        .then(result => {
-            res.status(201).json({
-                message: 'Projet créé avec succès !',
-                project: result
-            });
-        })
-        .catch(error => {
-            res.status(500).json({
-                error: error
-            });
+    try {
+        const project = new Project({
+            id: req.body.id,
+            name: req.body.name,
+            informations: req.body.informations,
+            tags: [req.body.tag1, req.body.tag2, req.body.tag3],
+            description: req.body.description,
+            cover: req.body.coverUrl,
+            photos: req.body.photosUrl.split(','),
+            code: req.body.lienCode,
+            site: req.body.lienSite,
+            alt: req.body.altCover,
+            html: parseInt(req.body.html),
+            css: parseInt(req.body.css),
+            js: parseInt(req.body.js)
         });
+
+        console.log('Project to be saved:', project);
+
+        const savedProject = await project.save();
+        console.log('Project saved successfully:', savedProject);
+
+        res.status(201).json(savedProject);
+    } catch (error) {
+        console.error('Error saving project:', error);
+        res.status(500).json({ message: 'Internal Server Error', error: error.message });
+    }
 };
 
 // Controller pour récupérer tous les projets //
@@ -46,6 +49,7 @@ exports.getAllProjects = (req, res, next) => {
 
 // Controller pour récupérer un projet par son ID //
 exports.getProjectById = (req, res, next) => {
+    console.log(req.params.id)
     Project.findById(req.params.id)
         .then(project => {
             if (!project) {
@@ -64,7 +68,7 @@ exports.getProjectById = (req, res, next) => {
 
 // Controller pour mettre à jour un projet //
 exports.updateProject = (req, res, next) => {
-    Project.findByIdAndUpdate(req.params.id, req.body)
+    Project.findByIdAndUpdate(req.params.id, req.body,{ new: true })
         .then(project => {
             if (!project) {
                 return res.status(404).json({
