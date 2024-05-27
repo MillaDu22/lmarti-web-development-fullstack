@@ -1,28 +1,28 @@
-const CV = require('../models/cv');
+const Cv = require('../models/cv');
 
 // Controller pour créer un nouveau CV //
-exports.createCV = (req, res, next) => {
-    const cv = new CV({
-        title: req.body.title,
-        pdf: {data: req.file.buffer, contentType: req.file.mimetype }
-    });
-    cv.save()
-        .then(createdCV => {
-            res.status(201).json({
-                message: 'CV créé avec succès !',
-                cv: createdCV
-            });
-        })
-        .catch(error => {
-            res.status(500).json({
-                error: error
-            });
+exports.createCv= async (req, res) => {
+    try {
+        const cv = new Cv({
+            id: req.body.id,
+            title: req.body.title,
+            url: req.body.urlCv
         });
+        console.log('Cv to be saved:', cv);
+        const savedCv = await cv.save();
+        console.log('Cv saved successfully:', savedCv);
+
+        res.status(201).json(savedCv);
+
+    } catch (error) {
+        console.error('Error saving cv:', error);
+        res.status(500).json({ message: 'Internal Server Error', error: error.message });
+    }
 };
 
 // Controller pour récupérer tous les CV //
-exports.getAllCVs = (req, res, next) => {
-    CV.find()
+exports.getAllCvs = (req, res, next) => {
+    Cv.find()
         .then(cvs => {
             res.status(200).json(cvs);
         })
@@ -34,8 +34,8 @@ exports.getAllCVs = (req, res, next) => {
 };
 
 // Controller pour récupérer un CV par son ID //
-exports.getCVById = (req, res, next) => {
-    CV.findById(req.params.id)
+exports.getCvById = (req, res, next) => {
+    Cv.findById(req.params.id)
         .then(cv => {
             if (!cv) {
                 return res.status(404).json({
@@ -52,14 +52,14 @@ exports.getCVById = (req, res, next) => {
 };
 
 // Controller pour mettre à jour un CV //
-exports.updateCV = (req, res, next) => {
+exports.updateCv = (req, res, next) => {
     const { title } = req.body;
     const updateData = {};
     if (title) {
         updateData.title = title;
     }
     
-    CV.findByIdAndUpdate(req.params.id, updateData, { new: true })
+    Cv.findByIdAndUpdate(req.params.id, updateData, { new: true })
         .then(updatedCV => {
             if (!updatedCV) {
                 return res.status(404).json({
@@ -79,8 +79,8 @@ exports.updateCV = (req, res, next) => {
 };
 
 // Controller pour supprimer un CV //
-exports.deleteCV = (req, res, next) => {
-    CV.findByIdAndDelete(req.params.id)
+exports.deleteCv = (req, res, next) => {
+    Cv.findByIdAndDelete(req.params.id)
         .then(cv => {
             if (!cv) {
                 return res.status(404).json({

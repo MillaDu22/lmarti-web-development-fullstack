@@ -1,25 +1,23 @@
 const Certificat = require('../models/certificat');
 
 // Controller pour créer un nouveau certificat //
-exports.createCertificat = (req, res, next) => {
-    const certificat = new Certificat({
-        id: req.body.id,
-        description: req.body.description,
-        pdf: {data: req.file.buffer, contentType: req.file.mimetype }
-    });
-
-    certificat.save()
-        .then(result => {
-            res.status(201).json({
-                message: 'Certificat créé avec succès !',
-                certificat: result
-            });
-        })
-        .catch(error => {
-            res.status(500).json({
-                error: error
-            });
+exports.createCertificat= async (req, res) => {
+    try {
+        const certificat = new Certificat({
+            id: req.body.id,
+            description: req.body.description,
+            url: req.body.urlCertificat
         });
+        console.log('Certificat to be saved:', certificat);
+        const savedCertificat = await certificat.save();
+        console.log('Certificat saved successfully:', savedCertificat);
+
+        res.status(201).json(savedCertificat);
+
+    } catch (error) {
+        console.error('Error saving certificat:', error);
+        res.status(500).json({ message: 'Internal Server Error', error: error.message });
+    }
 };
 
 // Controller pour récupérer tous les certificats //
