@@ -14,7 +14,6 @@ import DeleteCertificatForm from '../pages/DeleteCertificatForm/index';
 import AddCVForm from '../pages/AddCvForm/index';
 import EditCVForm from '../pages/EditCvForm/index';
 import DeleteCVForm from '../pages/DeleteCvForm/index';
-//import FormsAdmin from '../pages/FormsAdmin/index';
 import Error from "../pages/Error/index";
 import Project from "../pages/Project/index";
 import { Routes, Route } from "react-router-dom";
@@ -25,7 +24,7 @@ const Router =  () => {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/projet/:id" element={<Project />} />
+                <Route path="/project/:id" element={<Project />} />
                 <Route path="/cv" element={<Cv />} />
                 <Route path="/sign" element={<Sign />} />
                 <Route path="/log" element={<Log />} />
@@ -39,7 +38,6 @@ const Router =  () => {
                 <Route path="/addcvform" element={<AddCVForm />} />
                 <Route path="/editcvform" element={<EditCVForm />} />
                 <Route path="/deletecvform" element={<DeleteCVForm />} />
-                {/*<Route path="/formsadmin" element={<FormsAdmin />} />*/}
                 <Route path="*" element={<Error />} />
             </Routes>
     );

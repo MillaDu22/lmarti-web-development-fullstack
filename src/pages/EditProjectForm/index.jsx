@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import './editProjectForm.css';
 
 function EditProjectForm() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         id: '',
         name: '',
@@ -21,6 +23,8 @@ function EditProjectForm() {
         js: ''
     });
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -29,11 +33,41 @@ function EditProjectForm() {
         }));
     };
 
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.get(`http://localhost:3001/api/project/${formData.id}`);
+            const project = response.data;
+            setFormData({
+                id: project._id,
+                name: project.name,
+                informations: project.informations,
+                tag1: project.tags[0] || '',
+                tag2: project.tags[1] || '',
+                tag3: project.tags[2] || '',
+                description: project.description,
+                lienCode: project.code,
+                lienSite: project.site,
+                altCover: project.alt,
+                coverUrl: project.cover,
+                photosUrl: project.photos[0] || '',
+                html: project.html,
+                css: project.css,
+                js: project.js
+            });
+            setErrorMessage('');
+        } catch (error) {
+            console.error("Error fetching project:", error);
+            setErrorMessage('Project not found or error fetching project');
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
         const response = await axios.put(`http://localhost:3001/api/project/${formData.id}`, formData);
         console.log("Data updated:", response.data);
+        navigate('/');
         } catch (error) {
         console.error("Error:", error);
         }
@@ -45,6 +79,9 @@ function EditProjectForm() {
 
         <label htmlFor="id-project" className="label-formsAPI">Project ID:</label>
         <input type="text" id="id-project" name="id" autoComplete="off" className="input-field" value={formData.id} onChange={handleChange} />
+
+        <button type="button" onClick={handleSearch}>Search</button>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <label htmlFor="name-project" className="label-formsAPI">Name:</label>
         <input type="text" id="name-project" name="name" autoComplete="off" className="input-field" value={formData.name} onChange={handleChange} />

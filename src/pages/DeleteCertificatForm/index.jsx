@@ -1,8 +1,10 @@
 import './deleteCertificatForm.css';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function DeleteCertificatForm() {
+    const navigate = useNavigate();
     const [id, setId] = useState("");
 
     const handleChange = (e) => {
@@ -14,6 +16,7 @@ function DeleteCertificatForm() {
         try {
         const response = await axios.delete(`http://localhost:3001/api/certificat/${id}`);
         console.log("Certificat deleted:", response.data);
+        navigate('/about');
         } catch (error) {
         console.error("Error deleting certificat:", error);
         }

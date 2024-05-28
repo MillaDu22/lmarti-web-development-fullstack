@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Card({ id, cover, alt, title, informations, size }) {
     return (
         <div className={`card ${size}`}>
-            <Link to={`/projet/${id}`} className="card-link">
+            <Link to={`/project/${id}`} className="card-link">
                 <img src={cover} alt={alt} className="card-image" />
                 <div className="card-details">
                     <h3 className="card-title">{title}</h3>

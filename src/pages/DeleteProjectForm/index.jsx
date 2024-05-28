@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import "./deleteProjectForm.css";
 
 function DeleteProjectForm() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({ id: '' });
 
     const handleChange = (e) => {
@@ -18,6 +20,7 @@ function DeleteProjectForm() {
         try {
         const response = await axios.delete(`http://localhost:3001/api/project/${formData.id}`);
         console.log("Data deleted:", response.data);
+        navigate('/');
         } catch (error) {
         console.error("Error:", error);
         }

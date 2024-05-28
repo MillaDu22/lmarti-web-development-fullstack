@@ -1,8 +1,10 @@
 import './deleteCvForm.css';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function DeleteCVForm() {
+    const navigate = useNavigate();
     const [id, setId] = useState("");
 
     const handleChange = (e) => {
@@ -14,6 +16,7 @@ function DeleteCVForm() {
         try {
         const response = await axios.delete(`http://localhost:3001/api/cv/${id}`);
         console.log("CV deleted:", response.data);
+        navigate('/cv');
         } catch (error) {
         console.error("Error deleting CV:", error);
         }

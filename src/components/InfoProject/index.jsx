@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+/*import { useEffect } from 'react';
 import { Navigate, useNavigate} from 'react-router-dom';
 import './infoproject.css';
 import {useParams} from "react-router-dom";
@@ -68,11 +68,13 @@ const InfoProject = () => {
         </>
     );
 };
-export default InfoProject;
+export default InfoProject;*/
 
-/*import { useEffect, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
+import { useParams, Navigate } from 'react-router-dom';
 import axios from 'axios';
+import './infoproject.css';
 import Tag from '../Tag/index';
 import Slider from '../../components/Slider/index';
 import LienCode from "../LienCode/index";
@@ -82,66 +84,67 @@ import CircleSkillCss from "../CircleSkillCss/indexCss";
 import CircleSkillJs from '../CircleSkillJs/indexJs';
 
 const InfoProject = () => {
-    const navigate = useNavigate();
-    const { id } = useParams();
+    const {id } = useParams(); 
     const [project, setProject] = useState(null);
-
+    const [error, setError] = useState(false);
+    
     useEffect(() => {
         const fetchProject = async () => {
             try {
                 const response = await axios.get(`http://localhost:3001/api/project/${id}`);
-                setProject(response.data);
-                console.log(response)
+                setProject(response.data); 
             } catch (error) {
-                console.error('Error fetching project:', error);
-                navigate('/error');
+                console.error('Erreur :', error.message);
+                setError(true);
             }
         };
 
         fetchProject();
-    }, [id, navigate]);
+    }, [id]);
 
-    if (!project) {
-        return <Navigate replace to="../pages/error/index.jsx" />;
+    if (error) {
+        return <Navigate to="/error" replace />;
     }
 
-    const TagsProjets = project?.tags.map((tag, index) => {
-        return <Tag key={index} title={tag} />;
-    });
+    if (!project) {
+        return <div>Loading...</div>;
+    }
 
-    const CodesProjets = project?.code.map((code, index) => {
-        return <LienCode key={index} title={code} />;
-    });
-
-    const SitesProjets = project?.site?.map((site, index) => {
-        return <LienSite key={index} title={site} />;
-    });
+    const TagsProjets = project.tags.map((tag, index) => (
+        <Tag key={index} title={tag} />
+    ));
+    const CodesProjets = project.code.map((code, index) => (
+        <LienCode key={index} title={code} />
+    ));
+    const SitesProjets = project.site.map((site, index) => (
+        <LienSite key={index} title={site} />
+    ));
 
     return (
-        <div className='info-projet-box'>
-            <h2 className="title">{project?.name}</h2>
+        <div className='info-projet-box' key={project.id}>
+            <h2 className="title">{project.name}</h2>
             <div className="display-row">
                 <div className="box-slider-infos">
-                    <Slider images={project?.photos} />
+                    <Slider images={project.photos} />
                     <div className="info-projet">
-                        <div className="container-mots-cles">{TagsProjets}</div>
+                        <div className=" container-mots-cles">{TagsProjets}</div>
                         <span className="back-info-projet">
-                            <span className="txt-info-projet">{project?.description}</span>
+                            <span className="txt-info-projet">{project.description}</span>
                         </span>
-                        <div className="container-liens">{CodesProjets}{SitesProjets}</div>
+                        <div className=" container-liens">{CodesProjets}{SitesProjets}</div>
                     </div>
                 </div>
             </div>
             <div className="box-title-circleskill">
                 <h3 className="titre-circle-skill-box">Niveaux d'utilisation des technologies sur ce projet</h3>
                 <div className="container-circle-skill">
-                    <CircleSkillHtml percentage={project?.html} />
-                    <CircleSkillCss percentage={project?.css} />
-                    <CircleSkillJs percentage={project?.js} />
+                    <CircleSkillHtml percentage={project.html} />
+                    <CircleSkillCss percentage={project.css} />
+                    <CircleSkillJs percentage={project.js} />
                 </div>
             </div>
         </div>
     );
 };
 
-export default InfoProject;*/
+export default InfoProject;
