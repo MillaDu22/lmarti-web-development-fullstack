@@ -1,26 +1,15 @@
-.container-buttons {
-    width:100%;
+.container-cv {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding-top:5%;
-    padding-bottom: 5%;
+    width:100%;
+    height:100%;
 }
 
-.pdf-button {
-    font-family: "Cormorant";
-    background: black;
-    color: white;
-    font-size:20px;
-    border-radius:20px;
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-    padding:6px;
-}
-
-.pdf-button:hover {
-    background-color: #565869;
-    color:white;
+.cv {
+    width:96%;
+    height:100%;
+    object-fit: cover;
 }
 
 @media screen and (max-width:768px){

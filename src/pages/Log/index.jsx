@@ -25,6 +25,9 @@ function Log() {
         try {
             const response = await axios.post('http://localhost:3001/api/auth/login', formData);
             console.log('User logged in:', response.data);
+            const led = document.querySelector(".red");
+            console.log("Element found:", led); 
+            led.style.color="#000";
             setFormData({
                 email: '',
                 password: ''
