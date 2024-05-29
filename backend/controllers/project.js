@@ -48,7 +48,7 @@ exports.getAllProjects = (req, res, next) => {
 };
 
 // Controller pour récupérer un projet par son ID //
-exports.getProjectById = (req, res, next) => {
+/*exports.getProjectById = (req, res, next) => {
     console.log(req.params.id)
     Project.findById(req.params.id)
         .then(project => {
@@ -57,12 +57,33 @@ exports.getProjectById = (req, res, next) => {
                     message: 'Projet non trouvé'
                 });
             }
+            console.log(`Project with ID: ${req.params.id} is found`, project);
             res.status(200).json(project);
         })
         .catch(error => {
+            console.error(`Error fetching project with ID: ${req.params.id}`, error);
             res.status(500).json({
                 error: error
             });
+        });
+};*/
+
+exports.getProjectById = (req, res, next) => {
+    const projectId = req.params.id;
+    console.log(`Received request to get project with ID: ${projectId}`);
+    
+    Project.findOne({ id: projectId })
+        .then(project => {
+            if (!project) {
+                console.log(`Project with ID: ${projectId} not found`);
+                return res.status(404).json({ message: 'Project not found' });
+            }
+            console.log(`Project with ID: ${projectId} found`, project);
+            res.status(200).json(project);
+        })
+        .catch(error => {
+            console.error(`Error fetching project with ID: ${projectId}`, error);
+            res.status(500).json({ message: 'Internal Server Error', error: error.message });
         });
 };
 

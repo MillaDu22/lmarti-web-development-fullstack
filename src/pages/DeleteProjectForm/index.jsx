@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Navbar from "../../components/Navbar/index";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./deleteProjectForm.css";
 
 function DeleteProjectForm() {
@@ -27,14 +28,18 @@ function DeleteProjectForm() {
     };
 
     return (
-        <form className="form-project" onSubmit={handleSubmit}>
-        <h4 className="title-form">Delete Project</h4>
-        <label htmlFor="id-project" className="label-formsAPI">Project ID:</label>
-        <input type="text" id="id-project" name="id" autoComplete="off" className="input-field" value={formData.id} onChange={handleChange} />
-        <div className="buttons">
-            <input type="submit" className="btn-submit" value="Delete" />
+        <div className = "container-form">
+        <Navbar />
+        <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <form className="form-project" onSubmit={handleSubmit}>
+                <h4 className="title-form">Delete Project</h4>
+                <label htmlFor="id-project" className="label-formsAPI">Project ID:</label>
+                <input type="text" id="id-project" name="id" autoComplete="off" className="input-field" value={formData.id} onChange={handleChange} />
+                <div className="buttons">
+                    <input type="submit" className="btn-submit" value="Delete" />
+                </div>
+            </form>
         </div>
-        </form>
     );
 }
 

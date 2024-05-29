@@ -1,7 +1,8 @@
 import "./addCertificatForm.css";
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
+import Navbar from "../../components/Navbar/index";
 
 function AddCertificatForm() {
     const navigate = useNavigate();
@@ -31,16 +32,20 @@ function AddCertificatForm() {
     };
 
     return (
-        <form className ="form-certificat" onSubmit={handleSubmit}>
-        <h2>Add Certificat</h2>
-        <label htmlFor="id">Certificat ID:</label>
-        <input type="text" id="id" name="id" value={formData.id} onChange={handleChange} />
-        <label htmlFor="description">Name:</label>
-        <input type="text" id="description" name="description" value={formData.description} onChange={handleChange} />
-        <label htmlFor="urlCertificat">Certificat URL:</label>
-        <input type="text" id="urlCertificat" name="urlCertificat" value={formData.urlCertificat} onChange={handleChange} />
-        <button type="submit">Add Certificat</button>
-        </form>
+        <div className = "container-form">
+            <Navbar />
+            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <form className ="form-certificat" onSubmit={handleSubmit}>
+                <h2>Add Certificat</h2>
+                <label htmlFor="id">Certificat ID:</label>
+                <input type="text" id="id" name="id" value={formData.id} onChange={handleChange} />
+                <label htmlFor="description">Name:</label>
+                <input type="text" id="description" name="description" value={formData.description} onChange={handleChange} />
+                <label htmlFor="urlCertificat">Certificat URL:</label>
+                <input type="text" id="urlCertificat" name="urlCertificat" value={formData.urlCertificat} onChange={handleChange} />
+                <button type="submit">Add Certificat</button>
+            </form>
+        </div>
     );
 }
 

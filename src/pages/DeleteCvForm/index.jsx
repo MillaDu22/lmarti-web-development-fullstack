@@ -1,6 +1,7 @@
 import './deleteCvForm.css';
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import Navbar from "../../components/Navbar/index";
+import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
 
 function DeleteCVForm() {
@@ -23,12 +24,16 @@ function DeleteCVForm() {
     };
 
     return (
-        <form className = "form-delete-cv" onSubmit={handleSubmit}>
-        <h2>Delete CV</h2>
-        <label htmlFor="id">ID:</label>
-        <input type="text" id="id" value={id} onChange={handleChange} />
-        <button type="submit">Delete CV</button>
-        </form>
+        <div className = "container-form">
+            <Navbar />
+            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <form className = "form-delete-cv" onSubmit={handleSubmit}>
+                <h2>Delete CV</h2>
+                <label htmlFor="id">ID:</label>
+                <input type="text" id="id" value={id} onChange={handleChange} />
+                <button type="submit">Delete CV</button>
+            </form>
+        </div>
     );
 }
 

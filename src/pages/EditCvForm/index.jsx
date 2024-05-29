@@ -1,6 +1,7 @@
 import './editCvForm.css';
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import Navbar from "../../components/Navbar/index";
+import { useNavigate, Link } from 'react-router-dom';
 import axios from "axios";
 
 function EditCVForm() {
@@ -50,18 +51,22 @@ function EditCVForm() {
     };
 
     return (
-        <form className= "form-edit-cv" onSubmit={handleSubmit}>
-        <h2>Edit CV</h2>
-        <label htmlFor="id-cv" className="label-formsAPI">CV ID:</label>
-        <input type="text" id="id-cv" name="id" autoComplete="off" className="input-field" value={formData.id} onChange={handleChange} />
-        <button type="button" onClick={handleSearch}>Search</button>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <label htmlFor="title">Title:</label>
-        <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} />
-        <label htmlFor="cvUrl">CV URL:</label>
-        <input type="text" id="cvUrl" name="urlCv" value={formData.urlCv} onChange={handleChange} />
-        <button type="submit">Update CV</button>
-        </form>
+        <div className = "container-form">
+            <Navbar />
+            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <form className= "form-edit-cv" onSubmit={handleSubmit}>
+                <h2>Edit CV</h2>
+                <label htmlFor="id-cv" className="label-formsAPI">CV ID:</label>
+                <input type="text" id="id-cv" name="id" autoComplete="off" className="input-field" value={formData.id} onChange={handleChange} />
+                <button className="search-by-id" type="button" onClick={handleSearch}>Search</button>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <label htmlFor="title">Title:</label>
+                <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} />
+                <label htmlFor="cvUrl">CV URL:</label>
+                <input type="text" id="cvUrl" name="urlCv" value={formData.urlCv} onChange={handleChange} />
+                <button type="submit">Update CV</button>
+            </form>
+        </div>
     );
 }
 
