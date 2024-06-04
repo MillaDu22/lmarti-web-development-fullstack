@@ -1,14 +1,11 @@
-@font-face {
-    font-family: 'Oranienbaum';
-    src: url('../../assets/fonts/Oranienbaum.ttf') format('truetype')
-}
-
 .container-navbar {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width:100%;
+    background-color: black;
+    color:white;
     border-bottom: 4px solid black;
 }
 
@@ -17,63 +14,27 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width:20%;
-
 }
 
-
-.container-sign-icons {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left:40px;
-    width:100px;
-}
-
-.container-login-icons {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left:40px;
-    width:100px;
-}
-.container-logout-icons {
-    display:none;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left:40px;
-    width:100px;
-}
-
-.sign {
-    font-size:30px;
-    width:50px;
+.loginbutton, .logoutbutton {
+    text-decoration: none;
+    text-align: center;
 }
 
 .login {
-    font-size:30px;
-    width:50px;
-}
-
-.red {
-    color:red;
-    font-size:30px;
-    width:50px;
-}
-
-.green {
-    color:greenyellow;
-    font-size:30px;
-    width:50px;
+    font-size:18px;
+    color: red;
 }
 
 .logout {
-    font-size:30px;
-    transform: rotate(180deg);
-    width:50px;
+    font-size:18px;
+    color:green;
+    text-align: center;
+}
+
+.dash {
+    font-size:18px;
+    color:aqua;
 }
 
 .nav-header {
@@ -105,12 +66,12 @@
 }
 
 .nav_item1:hover, .nav_item2:hover, .nav_item3:hover {
-    text-decoration: underline black;
+    text-decoration: underline white;
 }
 
 .nav_item_text2, .nav_item_text1, .nav_item_text3 {
-    font-family: "Oranienbaum";
-    color:black;
+    font-family: 'Ysabeau SC', sans-serif;
+    color:white;
     font-size: 20px;
     font-weight: 600;
     width:100%;

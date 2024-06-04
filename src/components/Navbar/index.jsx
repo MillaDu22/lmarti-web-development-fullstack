@@ -1,22 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 
 function Navbar() {
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token); // Met à jour l'état en fonction de la présence du token
+    }, []);
+
+    const logout = () => {
+        // Supprime le token d'authentification du localStorage //
+        localStorage.clear();
+        setIsAuthenticated(false);
+        // Redirige l'utilisateur vers la page de connexion //
+        navigate('/log');
+    };
+    
     return(
         <div className = "container-navbar">
             <div className= "box-icons">
-                <div className="container-sign-icons">
-                    <Link className="SignButton" to="/sign"><i className="fa-solid fa-user-plus sign"></i></Link>
-                </div>
-                <div className="container-login-icons">
-                    <Link className="loginbutton" to="/log"><i className="fa-solid fa-right-to-bracket login"></i></Link>
-                    <p className= "logoutled"><i className="fa-solid fa-circle red"></i></p>
-                </div>
-                <div className="container-logout-icons">
-                    <Link className="logoutbutton" to="/"><i className="fa-solid fa-right-to-bracket logout"></i></Link>
-                    <p className="loginled"><i className="fa-solid fa-circle green"></i></p>
-                </div>
+            {!isAuthenticated && (
+                    <Link className="loginbutton" to="/log">
+                        <i className="fa-solid fa-power-off login"></i>
+                    </Link>
+                )}
+                {isAuthenticated && (
+                    <i className="fa-solid fa-power-off logout" onClick={logout}></i>
+                )}
             </div>
             <nav className="nav-header">
                 <Link className="nav_item1" to="/">

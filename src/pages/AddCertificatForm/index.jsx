@@ -34,7 +34,7 @@ function AddCertificatForm() {
     return (
         <div className = "container-form">
             <Navbar />
-            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <Link className= "return-dash" to="/dashboardcertificates"><i className="fa-solid fa-circle-left"></i></Link>
             <form className ="form-certificat" onSubmit={handleSubmit}>
                 <h2>Add Certificat</h2>
                 <label htmlFor="id">Certificat ID:</label>

@@ -34,7 +34,7 @@ function AddCVForm() {
     return (
         <div className = "container-form">
             <Navbar />
-            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <Link className= "return-dash" to="/dashboardcvs"><i className="fa-solid fa-circle-left"></i></Link>
             <form className = "form-add-cv" onSubmit={handleSubmit}>
             <h2>Add CV</h2>
             <label htmlFor="id-cv" className="label-formsAPI">CV ID:</label>

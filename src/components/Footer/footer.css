@@ -1,7 +1,3 @@
-@font-face {
-    font-family: 'Oranienbaum';
-    src: url('../../assets/fonts/Oranienbaum.ttf') format('truetype')
-}
 
 .container-footer {
     display:flex;
@@ -19,7 +15,7 @@
 
 .about, .mailto {
     color:white;
-    font-family: 'Oranienbaum';
+    font-family: 'Ysabeau SC', sans-serif;
     font-size: 24px;
     text-decoration: none;
 }

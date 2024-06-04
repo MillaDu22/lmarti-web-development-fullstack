@@ -25,16 +25,13 @@ function Log() {
         try {
             const response = await axios.post('http://localhost:3001/api/auth/login', formData);
             console.log('User logged in:', response.data);
-            const led = document.querySelector(".red");
-            console.log("Element found:", led); 
-            led.style.color="#000";
             setFormData({
                 email: '',
                 password: ''
             });
             // Stocke le token d'authentification dans le localStorage ou state //
             localStorage.setItem('token', response.data.token);
-            navigate('/dashboardadmin'); // Redirige vers le dash admin //
+            navigate('/dashboardprojects'); // Redirige vers le dash admin //
         } catch (error) {
             if (error.response) {
                 console.error('Response data:', error.response.data);

@@ -47,7 +47,7 @@ function AddProjectForm() {
     return (
         <div className = "container-form">
         <Navbar />
-            <Link className= "return-dash" to="/dashboardadmin"><i className="fa-solid fa-circle-left"></i></Link>
+            <Link className= "return-dash" to="/dashboardprojects"><i className="fa-solid fa-circle-left"></i></Link>
             <form className="form-project" onSubmit={handleSubmit}>
                 <h4 className="title-form">Add Project</h4>
 
