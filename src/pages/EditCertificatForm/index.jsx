@@ -88,8 +88,10 @@ function EditCertificatForm() {
                 <input type="text" id="description" name="description" value={formData.description} onChange={handleChange} />
                 <label htmlFor="urlCertificat">Certificat URL:</label>
                 <input type="text" id="urlCertificat" name="urlCertificat" value={formData.urlCertificat} onChange={handleChange} />
-                <button type="submit">Update Certificat</button>
-                <button type="button" className="btn-delete" onClick={handleDelete}>Delete</button>
+                <div className= "buttons">
+                    <button type="submit" className ="btn-submit">Update Certificat</button>
+                    <button type="button" className="btn-delete" onClick={handleDelete}>Delete</button>
+                </div>
             </form>
         </div>
     );

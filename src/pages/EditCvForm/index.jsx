@@ -88,8 +88,10 @@ function EditCVForm() {
                 <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} />
                 <label htmlFor="cvUrl">CV URL:</label>
                 <input type="text" id="cvUrl" name="urlCv" value={formData.urlCv} onChange={handleChange} />
-                <button type="submit">Update CV</button>
-                <button type="button" className="btn-delete" onClick={handleDelete}>Delete</button>
+                <div className="buttons">
+                    <button type="submit" className="btn-submit">Update CV</button>
+                    <button type="button" className="btn-delete" onClick={handleDelete}>Delete</button>
+                </div>
             </form>
         </div>
     );

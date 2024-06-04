@@ -50,8 +50,9 @@
 
 .buttons {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 20px; /* Ajustement pour la disposition des boutons */
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px; 
 }
 
 .btn-submit,
@@ -59,6 +60,7 @@
 .btn-delete {
     padding: 10px 20px;
     font-size: 1rem;
+    font-family: 'Ysabeau SC', sans-serif;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -66,17 +68,20 @@
 }
 
 .btn-submit {
-    background-color: #4caf50;
-    color: #fff;
+    margin-right: 10px;
 }
 
-.btn-update {
-    background-color: #ffc107;
-    color: #fff;
-    margin-right: 10px; /* Espacement entre les boutons */
+.btn-submit {
+    background-color: aqua;
+    color: black;
 }
 
 .btn-delete {
     background-color: #f44336;
     color: #fff;
+    font-family: 'Ysabeau SC', sans-serif;
+}
+.btn-delete:hover {
+    background:white;
+    color:red;
 }
