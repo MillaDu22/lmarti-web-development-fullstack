@@ -53,15 +53,26 @@ exports.getCertificatById = (req, res, next) => {
 
 // Controller pour mettre à jour un certificat //
 exports.updateCertificat = (req, res, next) => {
-    Certificat.findByIdAndUpdate(req.params.id, req.body)
-        .then(certificat => {
-            if (!certificat) {
+    const { description, urlCertificat } = req.body;
+    const updateData = {};
+
+    if (description) {
+        updateData.description = description;
+    }
+    if (urlCertificat) {
+        updateData.url = urlCertificat;
+    }
+
+    Certificat.findByIdAndUpdate(req.params.id, updateData, { new: true })
+        .then(updatedCertificat => {
+            if (!updatedCertificat) {
                 return res.status(404).json({
                     message: 'Certificat non trouvé'
                 });
             }
             res.status(200).json({
-                message: 'Certificat mis à jour avec succès'
+                message: 'Certificat mis à jour avec succès',
+                certificat: updatedCertificat
             });
         })
         .catch(error => {
@@ -70,6 +81,8 @@ exports.updateCertificat = (req, res, next) => {
             });
         });
 };
+
+
 
 // Controller pour supprimer un certificat //
 exports.deleteCertificat = (req, res, next) => {

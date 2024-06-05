@@ -53,12 +53,16 @@ exports.getCvById = (req, res, next) => {
 
 // Controller pour mettre à jour un CV //
 exports.updateCv = (req, res, next) => {
-    const { title } = req.body;
+    const { title, urlCv } = req.body;
     const updateData = {};
+
     if (title) {
         updateData.title = title;
     }
-    
+    if (urlCv) {
+        updateData.url = urlCv;
+    }
+
     Cv.findByIdAndUpdate(req.params.id, updateData, { new: true })
         .then(updatedCV => {
             if (!updatedCV) {
@@ -77,6 +81,11 @@ exports.updateCv = (req, res, next) => {
             });
         });
 };
+
+
+
+
+
 
 // Controller pour supprimer un CV //
 exports.deleteCv = (req, res, next) => {

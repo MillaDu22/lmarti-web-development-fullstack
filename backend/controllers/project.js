@@ -12,10 +12,10 @@ exports.createProject = async (req, res) => {
             informations: req.body.informations,
             tags: [req.body.tag1, req.body.tag2, req.body.tag3],
             description: req.body.description,
-            cover: req.body.coverUrl,
+            cover: req.body.coverUrl.split(','),
             photos: req.body.photosUrl.split(','),
-            code: req.body.lienCode,
-            site: req.body.lienSite,
+            code: req.body.lienCode.split(','),
+            site: req.body.lienSite.split(','),
             alt: req.body.altCover,
             html: parseInt(req.body.html),
             css: parseInt(req.body.css),
@@ -48,26 +48,6 @@ exports.getAllProjects = (req, res, next) => {
 };
 
 // Controller pour récupérer un projet par son ID //
-/*exports.getProjectById = (req, res, next) => {
-    console.log(req.params.id)
-    Project.findById(req.params.id)
-        .then(project => {
-            if (!project) {
-                return res.status(404).json({
-                    message: 'Projet non trouvé'
-                });
-            }
-            console.log(`Project with ID: ${req.params.id} is found`, project);
-            res.status(200).json(project);
-        })
-        .catch(error => {
-            console.error(`Error fetching project with ID: ${req.params.id}`, error);
-            res.status(500).json({
-                error: error
-            });
-        });
-};*/
-
 exports.getProjectById = (req, res, next) => {
     const projectId = req.params.id;
     console.log(`Received request to get project with ID: ${projectId}`);

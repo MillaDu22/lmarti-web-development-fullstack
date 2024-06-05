@@ -41,11 +41,12 @@ const InfoProject = () => {
         <Tag key={index} title={tag} />
     ));
 
-    const CodesProjets = project?.code.split(',').map((code, index) => (
-        <LienCode key={index} title={code.trim()} />
+    const CodesProjets = project?.code.map((code, index) => (
+        <LienCode key={index} title={code} />
     ));
-    const SitesProjets = project?.site.split(',').map((site, index) => (
-        <LienSite key={index} title={site.trim()} />
+
+    const SitesProjets = project?.site.map((site, index) => (
+        <LienSite key={index} title={site} />
     ));
 
     return (

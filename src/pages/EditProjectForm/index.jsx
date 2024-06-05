@@ -42,11 +42,10 @@ function EditProjectForm() {
                     tag2: response.data.tags[1] || '',
                     tag3: response.data.tags[2] || '',
                     description: response.data.description || '',
-                    lienCode: response.data.code || '',
-                    lienSite: response.data.site || '',
+                    lienCode: response.data.code.join(', ') || '',
+                    lienSite: response.data.site.join(', ') || '',
                     altCover: response.data.alt || '',
-                    /*coverUrl: response.data.cover || '',*/
-                    coverUrl: response.data.cover,
+                    coverUrl: response.data.cover.join(', ') || '',
                     photosUrl: response.data.photos.join(', ') || '',
                     html: response.data.html || '',
                     css: response.data.css || '',
@@ -83,7 +82,11 @@ function EditProjectForm() {
             const response = await axios.put(`http://localhost:3001/api/project/${formData.id}`,{
                 ...formData,
                 tags: [formData.tag1, formData.tag2, formData.tag3],
-                photos: formData.photosUrl.split(',').map(photo => photo.trim())
+                photos: formData.photosUrl.split(',').map(photo => photo.trim()),
+                cover: formData.coverUrl.split(',').map(cover => cover.trim()),
+                code: formData.lienCode.split(',').map(code => code.trim()),
+                site: formData.lienSite.split(',').map(site => site.trim())
+                
             });
             console.log("Project updated:", response.data);
             navigate('/');
