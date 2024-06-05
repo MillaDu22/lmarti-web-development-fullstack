@@ -82,8 +82,6 @@ exports.updateCertificat = (req, res, next) => {
         });
 };
 
-
-
 // Controller pour supprimer un certificat //
 exports.deleteCertificat = (req, res, next) => {
     Certificat.findByIdAndDelete(req.params.id)

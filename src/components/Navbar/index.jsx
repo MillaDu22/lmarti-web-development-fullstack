@@ -30,6 +30,11 @@ function Navbar() {
                 {isAuthenticated && (
                     <i className="fa-solid fa-power-off logout" onClick={logout}></i>
                 )}
+                {isAuthenticated && (
+                <Link className="dashboardbutton" to="/dashboardprojects">
+                    <i className="fa-solid fa-gauge dash"></i>
+                </Link>
+                )}
             </div>
             <nav className="nav-header">
                 <Link className="nav_item1" to="/">

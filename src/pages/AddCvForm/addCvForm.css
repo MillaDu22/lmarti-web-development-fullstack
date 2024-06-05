@@ -1,7 +1,6 @@
 .form-add-cv {
     width: 80%;
     margin: 0 auto;
-    padding: 10%;
     background-color: black;
     color:white;
     font-family: 'Ysabeau SC', sans-serif;
@@ -40,7 +39,7 @@
     margin-bottom: 10px;
     border: 1px solid aqua;
     border-radius: 5px;
-    background: aqua;
+    background: white;
 }
 
 .form-add-cv button {

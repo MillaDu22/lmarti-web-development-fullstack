@@ -3,8 +3,9 @@
     flex-direction: column;
     width: 80%;
     margin: 0 auto;
-    padding: 10%;
+    padding:0 10% 0 10%;
     background-color: black;
+    font-family: 'Ysabeau SC', sans-serif;
     color:white;
     border-radius: 8px;
 }
