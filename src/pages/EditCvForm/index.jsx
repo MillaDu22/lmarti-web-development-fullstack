@@ -58,7 +58,7 @@ function EditCVForm() {
         try {
         const response = await axios.put(`https://marti.alwaysdata.net/api/cv/${formData.id}`, formData);
         console.log("CV updated:", response.data);
-        navigate('/cv');
+        navigate('/');
         } catch (error) {
         console.error("Error updating CV:", error);
         }
@@ -68,7 +68,7 @@ function EditCVForm() {
         try {
             const response = await axios.delete(`https://marti.alwaysdata.net/api/cv/${formData.id}`);
             console.log("Cv deleted:", response.data);
-            navigate('/cv');
+            navigate('/');
         } catch (error) {
             console.error("Error:", error);
         }

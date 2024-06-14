@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from "../pages/Home/index";
 import About from "../pages/About/index";
-import Cv from "../pages/Cv/index";
 import Sign from "../pages/Sign/index";
 import Log from "../pages/Log/index";
 import DashboardProjects from "../components/DashboardProjects/index";
@@ -26,7 +25,6 @@ const Router =  () => {
                 <Route exact path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/project/:id" element={<Project />} />
-                <Route path="/cv" element={<Cv />} />
                 <Route path="/sign" element={<Sign />} />
                 <Route path="/log" element={<Log />} />
                 <Route element={<ProtectedRoute />}>

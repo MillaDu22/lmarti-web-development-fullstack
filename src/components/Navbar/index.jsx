@@ -1,8 +1,41 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './navbar.css';
 
 function Navbar() {
+
+    const [cvs, setCvs] = useState([]);
+    const location = useLocation();
+    const [url, setUrl] = useState(null);
+
+
+    useEffect(() => {
+        fetchCvs();
+    }, []);
+    const fetchCvs = async () => {
+        try {
+            const response = await axios.get('https://marti.alwaysdata.net/api/cv');
+            setCvs(response.data);
+            console.log(response.data)
+            if (response.data.length > 0) {
+                setUrl(response.data[0].url); 
+            }
+        } catch (error) {
+            console.error("Error fetching the PDF URL:", error);
+        };
+    }
+    useEffect(() => {
+        // Récupére les paramètres de requête de l'URL //
+        const searchParams = new URLSearchParams(location.search);
+        const newCvId = searchParams.get('newCvId')
+
+        // Si un nouvel identifiant de projet est présent dans les paramètres de requête, ajoute le nouveau projet à la liste des projets //
+        if (newCvId) {
+            fetchCvs(); // Rafraîchi la liste des projets depuis le serveur //
+        }
+    }, [location.search]);
+
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,9 +76,9 @@ function Navbar() {
                 <Link className="nav_item2" to="/about">
                     <p className="nav_item_text2">About</p>
                 </Link>
-                <Link className="nav_item3" to="/cv">
+                <a key={cvs.id} href={url} className="nav_item3" target='blank' >
                     <p className="nav_item_text3">Cv</p>
-                </Link>
+                </a>
             </nav>
         </div>
     )
