@@ -23,7 +23,7 @@ function Log() {
         e.preventDefault();
         console.log('Submitting login form:', formData);
         try {
-            const response = await axios.post('http://localhost:3001/api/auth/login', formData);
+            const response = await axios.post('https://marti.alwaysdata.net/api/auth/login', formData);
             console.log('User logged in:', response.data);
             setFormData({
                 email: '',

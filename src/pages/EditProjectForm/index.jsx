@@ -31,7 +31,7 @@ function EditProjectForm() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/project/${id}`);
+                const response = await axios.get(`https://marti.alwaysdata.net/api/project/${id}`);
                 setProject(response.data);
                 setFormData({
                     _id: response.data._id || '', 
@@ -79,7 +79,7 @@ function EditProjectForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:3001/api/project/${formData.id}`,{
+            const response = await axios.put(`https://marti.alwaysdata.net/api/project/${formData.id}`,{
                 ...formData,
                 tags: [formData.tag1, formData.tag2, formData.tag3],
                 photos: formData.photosUrl.split(',').map(photo => photo.trim()),
@@ -97,7 +97,7 @@ function EditProjectForm() {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3001/api/project/${formData.id}`);
+            const response = await axios.delete(`https://marti.alwaysdata.net/api/project/${formData.id}`);
             console.log("Project deleted:", response.data);
             navigate('/');
         } catch (error) {

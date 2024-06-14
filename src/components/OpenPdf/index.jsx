@@ -39,7 +39,7 @@ function OpenPdf() {
     }, []);
     const fetchCvs = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/cv');
+            const response = await axios.get('https://marti.alwaysdata.net/api/cv');
             setCvs(response.data);
             console.log(response.data)
             if (response.data.length > 0) {

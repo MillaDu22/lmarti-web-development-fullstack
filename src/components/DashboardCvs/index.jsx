@@ -16,7 +16,7 @@ function DashboardCvs({id}) {
 
     const fetchCvs = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/cv');
+            const response = await axios.get('https://marti.alwaysdata.net/api/cv');
             setCvs(response.data);
         } catch (error) {
             console.error('Error fetching cvs:', error);

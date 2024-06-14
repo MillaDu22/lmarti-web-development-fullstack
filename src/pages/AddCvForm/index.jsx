@@ -23,7 +23,7 @@ function AddCVForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        const response = await axios.post("http://localhost:3001/api/cv", formData);
+        const response = await axios.post("https://marti.alwaysdata.net/api/cv", formData);
         console.log("CV added:", response.data);
         navigate('/cv');
         } catch (error) {

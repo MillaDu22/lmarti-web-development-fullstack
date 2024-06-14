@@ -15,7 +15,7 @@ function DashboardProjects() {
 
     const fetchProjects = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/project');
+            const response = await axios.get('https://marti.alwaysdata.net/api/project');
             setProjects(response.data);
         } catch (error) {
             console.error('Error fetching projects:', error);

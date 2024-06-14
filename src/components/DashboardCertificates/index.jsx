@@ -16,7 +16,7 @@ function DashboardCertificates({id}) {
 
     const fetchCertificates = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/certificat');
+            const response = await axios.get('https://marti.alwaysdata.net/api/certificat');
             setCertificates(response.data);
         } catch (error) {
             console.error('Error fetching certificates:', error);

@@ -23,7 +23,7 @@ function AddCertificatForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        const response = await axios.post("http://localhost:3001/api/certificat", formData);
+        const response = await axios.post("https://marti.alwaysdata.net/api/certificat", formData);
         console.log("Certificat added:", response.data);
         navigate('/about');
         } catch (error) {

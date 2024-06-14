@@ -20,7 +20,7 @@ function EditCertificatForm() {
     useEffect(() => {
         const fetchCertificat = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/certificat/${id}`);
+                const response = await axios.get(`https://marti.alwaysdata.net/api/certificat/${id}`);
                 setCertificat(response.data);
                 setFormData({
                     _id: response.data._id || '', 
@@ -55,7 +55,7 @@ function EditCertificatForm() {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3001/api/certificat/${formData.id}`);
+            const response = await axios.delete(`https://marti.alwaysdata.net/api/certificat/${formData.id}`);
             console.log("Certificat deleted:", response.data);
             navigate('/about');
         } catch (error) {
@@ -66,7 +66,7 @@ function EditCertificatForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        const response = await axios.put(`http://localhost:3001/api/certificat/${formData.id}`, formData);
+        const response = await axios.put(`https://marti.alwaysdata.net/api/certificat/${formData.id}`, formData);
         console.log("Certificat updated:", response.data);
         navigate('/about');
         } catch (error) {

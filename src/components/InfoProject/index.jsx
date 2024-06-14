@@ -18,7 +18,7 @@ const InfoProject = () => {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/project/${id}`);
+                const response = await axios.get(`https://marti.alwaysdata.net/api/project/${id}`);
                 setProject(response.data); 
             } catch (error) {
                 console.error('Erreur :', error.message);

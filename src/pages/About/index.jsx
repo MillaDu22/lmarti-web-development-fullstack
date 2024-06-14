@@ -13,7 +13,7 @@ function About() {
     useEffect(() => {
         const fetchCertifications = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/certificat'); 
+                const response = await axios.get('https://marti.alwaysdata.net/api/certificat'); 
                 setCertifications(response.data);
                 setLoading(false);
             } catch (error) {

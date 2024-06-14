@@ -25,7 +25,7 @@ function Sign() {
         e.preventDefault();
         try {
             console.log("Submitées form data:", formData);
-            let response = await axios.post('http://localhost:3001/api/auth/signup', formData);
+            let response = await axios.post('https://marti.alwaysdata.net/api/auth/signup', formData);
             console.log(response.data);
             setFormData({
                 username: '',

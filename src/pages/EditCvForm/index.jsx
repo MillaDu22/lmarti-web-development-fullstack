@@ -20,7 +20,7 @@ function EditCVForm() {
     useEffect(() => {
         const fetchCv = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/cv/${id}`);
+                const response = await axios.get(`https://marti.alwaysdata.net/api/cv/${id}`);
                 setCv(response.data);
                 setFormData({
                     _id: response.data._id || '', 
@@ -56,7 +56,7 @@ function EditCVForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        const response = await axios.put(`http://localhost:3001/api/cv/${formData.id}`, formData);
+        const response = await axios.put(`https://marti.alwaysdata.net/api/cv/${formData.id}`, formData);
         console.log("CV updated:", response.data);
         navigate('/cv');
         } catch (error) {
@@ -66,7 +66,7 @@ function EditCVForm() {
 
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3001/api/cv/${formData.id}`);
+            const response = await axios.delete(`https://marti.alwaysdata.net/api/cv/${formData.id}`);
             console.log("Cv deleted:", response.data);
             navigate('/cv');
         } catch (error) {

@@ -36,7 +36,7 @@ function AddProjectForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        const response = await axios.post("http://localhost:3001/api/project", formData);
+        const response = await axios.post("https://marti.alwaysdata.net/api/project", formData);
         console.log("Data submitted:", response.data);
         navigate('/');
         } catch (error) {
