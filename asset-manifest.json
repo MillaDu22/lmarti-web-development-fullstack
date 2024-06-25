@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lmarti-web-development-fullstack/static/css/main.8c1eaf80.css",
+    "main.css": "/lmarti-web-development-fullstack/static/css/main.565d02b4.css",
     "main.js": "/lmarti-web-development-fullstack/static/js/main.2fa05a32.js",
     "static/js/453.e4fa333f.chunk.js": "/lmarti-web-development-fullstack/static/js/453.e4fa333f.chunk.js",
     "static/media/Oranienbaum.ttf": "/lmarti-web-development-fullstack/static/media/Oranienbaum.e5625604e9200634b240.ttf",
@@ -10,12 +10,12 @@
     "static/media/photo-moi.webp": "/lmarti-web-development-fullstack/static/media/photo-moi.91ef79723d60e8dfc21a.webp",
     "index.html": "/lmarti-web-development-fullstack/index.html",
     "static/media/chevron.webp": "/lmarti-web-development-fullstack/static/media/chevron.a38c37cf785688867be6.webp",
-    "main.8c1eaf80.css.map": "/lmarti-web-development-fullstack/static/css/main.8c1eaf80.css.map",
+    "main.565d02b4.css.map": "/lmarti-web-development-fullstack/static/css/main.565d02b4.css.map",
     "main.2fa05a32.js.map": "/lmarti-web-development-fullstack/static/js/main.2fa05a32.js.map",
     "453.e4fa333f.chunk.js.map": "/lmarti-web-development-fullstack/static/js/453.e4fa333f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c1eaf80.css",
+    "static/css/main.565d02b4.css",
     "static/js/main.2fa05a32.js"
   ]
 }
